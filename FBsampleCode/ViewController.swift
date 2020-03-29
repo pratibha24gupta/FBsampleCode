@@ -7,14 +7,35 @@
 //
 
 import UIKit
+import FacebookLogin
+import  KeychainSwift
 
 class ViewController: UIViewController {
-
+    
+    
+       
+    
+    @IBOutlet weak var userNameTxt: UITextField!
+    
+    
+    @IBOutlet weak var passwordTXT: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+        let loginButton = FBLoginButton(permissions: [ .publicProfile ])
+            loginButton.center = view.center
 
+            view.addSubview(loginButton)
+        if let accessToken = AccessToken.current {
+            // User is logged in, use 'accessToken' here.
+        }
+        }
+   
+
+@IBAction func submitBTN(_ sender: UIButton) {
+   
+   
 
 }
-
+    
+}
